@@ -51,10 +51,10 @@ HtmlReplaceWebpackPlugin.prototype.apply = function(compiler)
   {
     // console.log('The compiler is starting a new compilation...')
     compilation.plugin('html-webpack-plugin-before-html-processing',
-      function(htmlPluginData, callback)
+      function(htmlPluginData)
       {
         htmlPluginData.html = _this.replace(htmlPluginData.html)
-        callback(null, htmlPluginData)
+        return htmlPluginData;
       })
   })
 }
